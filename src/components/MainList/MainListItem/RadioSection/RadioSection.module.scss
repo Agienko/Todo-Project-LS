@@ -1,0 +1,13 @@
+.radiosection{
+    padding: 5px;
+    font-size: smaller;
+   margin: 0 10px;
+    label{
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+        p{
+            color: gray;
+        }
+    }
+}

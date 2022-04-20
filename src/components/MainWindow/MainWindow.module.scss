@@ -1,0 +1,30 @@
+$size: 300px;
+
+.mainWindow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+
+}
+
+.IU{
+    background-color:rgb(255, 81, 58);
+    width: $size*2;
+    height: $size;
+}
+.InU{
+    background-color:rgb(89, 243, 23);
+    width: $size*2;
+    height: $size;
+}
+.nIU{
+    background-color:rgb(38, 145, 233);
+    width: $size*2;
+    height: $size;
+}
+.nInU{
+    background-color:rgb(237, 215, 45);
+    width: $size*2;
+    height: $size;
+}
