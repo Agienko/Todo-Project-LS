@@ -6,7 +6,6 @@ import s from './Header.module.scss'
 
 const Header = () => {
   const {localStore: store, isLogged, setIsLogged} = useContext(StoreContext)
-  console.log(store)
   const [regHide, setRegHide] = useState(true)
   const [authHide, setAuthHide] = useState(true)
   

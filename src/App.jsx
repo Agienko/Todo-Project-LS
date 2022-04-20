@@ -11,7 +11,6 @@ import StoreContext from './context/storeContext';
 function App() {
   const [isLogged, setIsLogged] = useState(localStore.isLogged());
 
-  console.log(isLogged);
   return (
     <div className="App">
       <BrowserRouter>

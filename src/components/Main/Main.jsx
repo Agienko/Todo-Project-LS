@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Auth from '../Auth/Auth';
+
 
 import MainList from '../MainList/MainList';
 import MainWindow from '../MainWindow/MainWindow';

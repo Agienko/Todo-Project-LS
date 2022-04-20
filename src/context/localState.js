@@ -33,8 +33,13 @@
         state.loginedUser = {name: '', password: ''}
         this.setState(state)
     },
-    createNewList(userName){ // создать список
+    getLists(){// Возвращает массив имен списков
         let state = this.getState()
+        return Object.keys(state[this.getUserName()]).filter(i => i!== 'password')
+    },
+    createNewList(){ // создать список
+        let state = this.getState()
+        let userName = this.getUserName()
         let name = `Новый список`
         for(let i = 1;;i++){//Создает уникальное имя
             if(!state[userName][`Новый список ${i}`]){
@@ -45,8 +50,9 @@
         state[userName][name] = []
         this.setState(state)
     },
-    renameList(userName, lisName, newName){// переименовать список(возвращает true), если имя существует, - возвращает false
+    renameList( lisName, newName){// переименовать список(возвращает true), если имя существует, - возвращает false
         let state = this.getState()
+        let userName = this.getUserName()
         if(state[userName].hasOwnProperty(newName) ){
             console.log(` Список с именем "${newName}" существует, пожалуйста выберите другое имя`)
             return false
@@ -57,13 +63,15 @@
         this.setState(state)
         return true
     },
-    deleteList(userName, listName){ // удалить список
+    deleteList(listName){ // удалить список
         let state = this.getState()
+        let userName = this.getUserName()
         delete state[userName][listName]
         this.setState(state)
     },
-    addListItem(userName, listName, text){ // создать задание
+    addListItem(listName, text){ // создать задание
         let state = this.getState()
+        let userName = this.getUserName()
         let id = Math.max(...state[userName][listName].map(i => +i.id), 0) + 1 // создает уникальнй id 
         let listItem = {// создает обьект задания
             id: id, 
@@ -76,14 +84,16 @@
         state[userName][listName].push(listItem)
         this.setState(state)
     },
-    updateListItem(userName, listName, id, prop, value ){ // обновить произвольное свойство(prop) задания
+    updateListItem(listName, id, prop, value ){ // обновить произвольное свойство(prop) задания
         let state = this.getState()
+        let userName = this.getUserName()
         let index = state[userName][listName].map(i => i.id).indexOf(id)
         state[userName][listName][index][prop] = value
         this.setState(state)
     },
-    deleteListItem(userName, listName, id){ // удаляет задание
+    deleteListItem(listName, id){ // удаляет задание
         let state = this.getState()
+        let userName = this.getUserName()
         state[userName][listName] = state[userName][listName].filter(i => i.id !== id)
         this.setState(state)
     }

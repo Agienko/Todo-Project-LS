@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import StoreContext from '../../context/storeContext';
 
 import s from './SideBar.module.scss'
 import SideBarItem from './SideBarItem/SideBarItem';
 
 const SideBar = () => {
-   
+    const {localStore: store} = useContext(StoreContext)
+    console.log(store.getLists())
     return (
         <div className={['SideBar', s.sidebar].join(' ')}>
           <h2>Списки:</h2>
