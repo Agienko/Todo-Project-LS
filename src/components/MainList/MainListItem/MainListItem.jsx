@@ -3,7 +3,7 @@ import s from './MainListItem.module.scss';
 import RadioSection from './RadioSection/RadioSection';
 
 const MainListItem = ({setItem, update, remove, ...props }) => {
-  console.log(props)
+  
   return (
     <li className={props.completed ?  s.mainlistitem + ' ' + s.completed : s.mainlistitem } >
       <header>

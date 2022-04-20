@@ -101,7 +101,8 @@
         let userName = this.getUserName()
         state[userName][listName] = state[userName][listName].filter(i => i.id !== id)
         this.setState(state)
-    }
+    },
+    
 }
 
 localStore.__proto__ = {
