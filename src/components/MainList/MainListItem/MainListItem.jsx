@@ -2,22 +2,20 @@ import React from 'react';
 import s from './MainListItem.module.scss';
 import RadioSection from './RadioSection/RadioSection';
 
-const MainListItem = () => {
+const MainListItem = ({setItem, update, remove, ...props }) => {
+  console.log(props)
   return (
-    <li className={s.mainlistitem}>
+    <li className={props.completed ?  s.mainlistitem + ' ' + s.completed : s.mainlistitem } >
       <header>
-        <h3> Сделть принтер </h3>
-        <h4>дата</h4>
+        <h3>{props.text}</h3>
+        <h4>{props.date}</h4>
       </header>
-       
-       <RadioSection name="important" text={'ВАЖНО'}/>
-       <RadioSection name="urgent" text={'СРОЧНО'}/>
+       <RadioSection name="important" text={'ВАЖНО'} flag={props.important} id={props.id} update={update}/>
+       <RadioSection name="urgent" text={'СРОЧНО'}flag={props.urgent} id={props.id} update={update}/>
       <footer>
-      <button>сделано</button>
-        <button>удалить</button>
+      <button onClick={()=> update(props.id, 'completed', !props.completed)}>сделано</button>
+        <button onClick={()=> remove(props.id)}>удалить</button>
       </footer>
-       
-      
     </li>
   );
 };

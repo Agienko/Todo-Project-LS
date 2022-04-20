@@ -54,7 +54,7 @@
         let state = this.getState()
         let userName = this.getUserName()
         if(state[userName].hasOwnProperty(newName) ){
-            console.log(` Список с именем "${newName}" существует, пожалуйста выберите другое имя`)
+            alert(` Список с именем "${newName}" существует, пожалуйста выберите другое имя`)
             return false
         }
         let list = state[userName][lisName]
@@ -68,6 +68,11 @@
         let userName = this.getUserName()
         delete state[userName][listName]
         this.setState(state)
+    },
+    getListItems(listName){
+        let state = this.getState()
+        let userName = this.getUserName()
+        return state[userName][listName] || []
     },
     addListItem(listName, text){ // создать задание
         let state = this.getState()

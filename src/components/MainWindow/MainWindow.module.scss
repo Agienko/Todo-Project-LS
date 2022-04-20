@@ -1,5 +1,8 @@
-$size: 300px;
-
+$size: 170px;
+@mixin size {
+    min-width: $size*2;
+    min-height: $size;
+}
 .mainWindow{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -10,21 +13,24 @@ $size: 300px;
 
 .IU{
     background-color:rgb(255, 81, 58);
-    width: $size*2;
-    height: $size;
+   @include size;
 }
 .InU{
     background-color:rgb(89, 243, 23);
-    width: $size*2;
-    height: $size;
+    @include size;
 }
 .nIU{
     background-color:rgb(38, 145, 233);
-    width: $size*2;
-    height: $size;
+    @include size;
 }
 .nInU{
     background-color:rgb(237, 215, 45);
-    width: $size*2;
-    height: $size;
+    @include size;
+}
+
+
+@media (max-width:(1050px)) {
+    .mainWindow{
+        grid-template-columns: 1fr;
+    }
 }

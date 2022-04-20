@@ -20,7 +20,6 @@ const Registration = ({setRegHide, setNewUser}) => {
     }
     const handlerOk = (e) => {
         e.preventDefault()
-        console.log(name, pass, passRepeat);
         (pass === passRepeat && pass.length < 5) ?  setPassShort(true) : setPassShort(false);
         (pass !== passRepeat ) ?  setPassWrong(true) : setPassWrong(false);
         (name.length < 3 ) ?  setNameShort(true) : setNameShort(false);

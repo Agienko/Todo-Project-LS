@@ -4,12 +4,16 @@ $headerHeight: 60px;
 *{
     margin: 0;
     padding: 0;
+    user-select: none;
+}
+a { 
+    text-decoration: none;
+    color: inherit;
 }
 .App{
     display: grid;
     min-width: 300px;
-    grid-template-areas: 'header header'
-                            'sidebar main';
+    grid-template-areas: 'header header' 'sidebar main';
     grid-template-columns: $sideBarWidth 1fr;
     grid-template-rows: $headerHeight 1fr;
 
