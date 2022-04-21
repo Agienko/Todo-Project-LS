@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React, { useContext, useState } from 'react';
 import StoreContext from '../../context/storeContext';
 import Auth from '../Auth/Auth';
@@ -21,14 +22,16 @@ const Header = () => {
           <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple126/v4/df/df/18/dfdf183f-0c66-fbf6-1855-2dd658bf9b19/AppIcon-0-0-1x_U007emarketing-0-0-0-4-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" alt="logo" />
           <h1>Todo App</h1>
       {!isLogged 
-      ?   <div>
-            <button onClick={() => setRegHide(false)}>Регистрация</button>
-            <button onClick={() => setAuthHide(false)}>Войти</button>
+      ?   <div className={s.btnContainer}>
+            <Button size='small' type="primary" onClick={() => setRegHide(false)}>Регистрация</Button>
+            <Button size='small' type="primary" onClick={() => setAuthHide(false)}>Войти</Button>
+         
           </div>
       :
-          <div>
+          <div className={s.btnContainer}>
             <span>{store.getUserName()}</span>
-            <button onClick={handlelogOutClick}>Выйти</button>
+            <Button ghost size='small' type="primary" onClick={handlelogOutClick}>Выйти</Button>
+            {/* <button onClick={handlelogOutClick}>Выйти</button> */}
           </div>
       }
         </div>

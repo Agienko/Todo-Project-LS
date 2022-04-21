@@ -19,14 +19,14 @@ const Auth = ({setAuthHide, loginUser, setIsLogged}) => {
     const handlerOk = (e) =>{
         e.preventDefault()
         if(name && pass){
-            try{
-                loginUser(name, pass)
-                setWrong(false)
-                setAuthHide(true)
-                setIsLogged(true)
-              } catch{
-                  setWrong(true)
-              }
+           if(loginUser(name, pass)) {
+            setWrong(false)
+            setAuthHide(true)
+            setIsLogged(true)
+           } else {
+            setWrong(true)
+           }
+          
         } 
     }
 

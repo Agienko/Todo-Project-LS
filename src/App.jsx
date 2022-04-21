@@ -7,6 +7,7 @@ import PlugIsAuth from './components/PlugIsAuth/PlugIsAuth';
 import SideBar from './components/SideBar/SideBar';
 import localStore from './context/localState';
 import StoreContext from './context/storeContext';
+import { Button, DatePicker, version } from "antd";
 
 function App() {
   const [isLogged, setIsLogged] = useState(localStore.isLogged());
@@ -22,6 +23,7 @@ function App() {
               <Main />
             </>
           : <PlugIsAuth />}
+          <DatePicker/>
         </StoreContext.Provider>
       </BrowserRouter>
     </div>

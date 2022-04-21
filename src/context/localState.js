@@ -18,15 +18,19 @@
         let state = this.getState()
         state[userName] = {password: password}
         this.setState(state)
+        alert(` Регистрация прошла успешно! Пользователь с именем ${userName} успешно зарегистрирован`)
         return true
     },
     loginUser(userName, password){//логин юзера
         let state = this.getState()
-        if(state[userName].password === password) {
-            state.loginedUser = {name: userName, password: password}
-            this.setState(state)
-            return true
-        } return false
+        try{//проверка на ввод неправильного имени. Если userName отсутствует, то будет ошибка, нужно вернуть false
+            if(state[userName].password === password) {
+                state.loginedUser = {name: userName, password: password}
+                this.setState(state)
+                return true
+            } 
+        } catch { return false }
+        return false
     },
     logoutUser(){//логаут юзера
         let state = this.getState()

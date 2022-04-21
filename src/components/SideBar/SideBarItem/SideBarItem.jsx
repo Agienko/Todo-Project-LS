@@ -9,6 +9,7 @@ const SideBarItem = ({name, deleteList, renameList}) => {
         renameList(name, listName)
         setToggle(!toggle)
     }
+ 
     const path = useLocation().pathname.split('/')[1]
     return (
         <li className={s.sidebarItem}> 
@@ -22,10 +23,9 @@ const SideBarItem = ({name, deleteList, renameList}) => {
             : 
                 <>
                     <h4 onDoubleClick={() => setToggle(!toggle)}>{name}</h4> 
-                    <button onClick={() =>deleteList(name)}>Удалить</button>
+                    <button onClick={() =>{deleteList(name)}}>Удалить</button>
                 </>
             }
-            
             
             </Link> 
         </li>

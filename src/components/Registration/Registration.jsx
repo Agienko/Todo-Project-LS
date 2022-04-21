@@ -18,8 +18,9 @@ const Registration = ({setRegHide, setNewUser}) => {
         e.stopPropagation()
      if(e.target === e.currentTarget) setRegHide(true)
     }
+
     const handlerOk = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         (pass === passRepeat && pass.length < 5) ?  setPassShort(true) : setPassShort(false);
         (pass !== passRepeat ) ?  setPassWrong(true) : setPassWrong(false);
         (name.length < 3 ) ?  setNameShort(true) : setNameShort(false);
@@ -29,8 +30,16 @@ const Registration = ({setRegHide, setNewUser}) => {
             setPassRepeat('')
         }
         if(pass === passRepeat && pass.length >= 5 && name){
-            if(setNewUser(name, pass)) setRegHide(true)
-            
+            if(setNewUser(name, pass)) {
+                setRegHide(true)
+                setName('')
+                setPass('')
+                setPassRepeat('')
+            } else {
+                setName('')
+                setPass('')
+                setPassRepeat('')
+            }
         }
     }
     

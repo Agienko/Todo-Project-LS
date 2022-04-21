@@ -4,7 +4,8 @@ import StoreContext from '../../context/storeContext';
 import MainListItem from './MainListItem/MainListItem';
 
 const MainList = ({setName}) => {
-    const listName = useParams()['*']
+    let listName = useParams()['*']
+    listName = listName === 'undefined' ? '' : listName
     const {localStore: store} = useContext(StoreContext)
     const [items, setItems] = useState(store.getListItems(listName))
     const [text, setText] = useState('')
