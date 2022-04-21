@@ -1,3 +1,4 @@
+import { Button, Input } from 'antd';
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import s from './SideBarItem.module.scss'
@@ -5,8 +6,10 @@ import s from './SideBarItem.module.scss'
 const SideBarItem = ({name, deleteList, renameList}) => {
     const [toggle, setToggle] = useState(false)
     const [listName, setListName] = useState(name)
+
     const handleRename = () =>{
-        renameList(name, listName)
+        if(name !== listName && listName) renameList(name, listName)
+        setListName(name)
         setToggle(!toggle)
     }
  
@@ -16,17 +19,19 @@ const SideBarItem = ({name, deleteList, renameList}) => {
             <Link to={`${path}/${listName}`}>
             {toggle
             ?   
-                <>
-                    <input autoFocus value={listName} onChange={(e) => setListName(e.target.value)} onBlur={handleRename}/>
-                    <button onClick={handleRename}>Ок</button>
-                </>
+            <>
+                <Input value={listName} autoFocus maxLength={30}
+                        onChange={(e) => {setListName(e.target.value)}} 
+                        onBlur={handleRename} onPressEnter={() =>setToggle(!toggle)}
+                        />
+                <Button size='middle' type='primary' onClick={handleRename}>Ок</Button>
+            </>
             : 
                 <>
                     <h4 onDoubleClick={() => setToggle(!toggle)}>{name}</h4> 
-                    <button onClick={() =>{deleteList(name)}}>Удалить</button>
+                    <Button ghost size='small' type='danger' onMouseDown={() => deleteList(name)}>Удалить</Button>
                 </>
             }
-            
             </Link> 
         </li>
     );

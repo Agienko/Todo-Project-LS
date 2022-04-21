@@ -4,16 +4,37 @@
     border-radius: 5px;
     margin: 5px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items:center;
+    min-width: 340px;
     overflow: hidden;
-    h3{
-        white-space: nowrap;
+    header{
+        line-height: 0.7;
+    
+        h3{
+            font-size: large;
+            text-align: center;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        p{
+            font-style: italic;
+            font-size: 11px;
+            color: gray;
+        }
+    }
+
+    
+    
+    main, footer{
+        display: flex;
     }
     footer{
-        display: flex;
-        flex-direction: column;
-       
+        button{
+            margin: 0 5px;
+        }
     }
+   
 }
 .completed{
     border: 1px solid rgb(79, 190, 27); 

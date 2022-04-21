@@ -10,8 +10,10 @@
         border-radius: 50%;
     }
     .btnContainer{
+        display: flex;
+        align-items:center;
         button{
-            margin: 5px;
+            margin: 0 10px;
         }
     }
 }

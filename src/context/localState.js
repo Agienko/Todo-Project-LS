@@ -4,7 +4,9 @@
        return this.getState().loginedUser.name
     },
     isLogged() { // проверка на вход в сиситему
-        if(!this._isStoreCreated()) this._createStore()
+        if(!this._isStoreCreated()) {
+            this._createStore()
+        }
         return !!this.getState().loginedUser.name 
     },
     isUserCereated(userName){ // существует ли пользователь с именем в базе?
@@ -54,16 +56,17 @@
         state[userName][name] = []
         this.setState(state)
     },
-    renameList( lisName, newName){// переименовать список(возвращает true), если имя существует, - возвращает false
+    renameList( listName, newName){// переименовать список(возвращает true), если имя существует, - возвращает false
         let state = this.getState()
         let userName = this.getUserName()
         if(state[userName].hasOwnProperty(newName) ){
             alert(` Список с именем "${newName}" существует, пожалуйста выберите другое имя`)
             return false
         }
-        let list = state[userName][lisName]
-        delete state[userName][lisName]
-        state[userName][newName] = list
+        const arr = Object.entries(state[userName])
+        let index = Object.keys(state[userName]).indexOf(listName)
+        arr[index][0] = newName
+        state[userName] = Object.fromEntries(arr)
         this.setState(state)
         return true
     },

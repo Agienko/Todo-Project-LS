@@ -1,8 +1,22 @@
 .sidebarItem{
+    width: 260px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    list-style: none;
+    
+    a{
+        display: flex;
+        justify-content: space-between;
+    }
     h4{
         cursor: pointer;
     }
     input{
-        user-select: auto;
+       z-index: 2;
+    }
+    button{
+        z-index: 5;
     }
 }

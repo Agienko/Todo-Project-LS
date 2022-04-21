@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React, { useContext, useState } from 'react';
 import StoreContext from '../../context/storeContext';
 
@@ -31,7 +32,7 @@ const SideBar = () => {
                     renameList={handlerRenameList}
                     />)}
           </ul>
-          <button onClick={handlerAddList}>Добавить</button>
+          <Button ghost type='primary' size='small' onClick={handlerAddList}>Добавить</Button>
         </div>
     );
 };

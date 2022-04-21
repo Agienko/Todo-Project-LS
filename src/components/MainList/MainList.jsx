@@ -1,6 +1,8 @@
+import { Button, Input } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import StoreContext from '../../context/storeContext';
+import Filter from '../Filter/Filter';
 import MainListItem from './MainListItem/MainListItem';
 
 const MainList = ({setName}) => {
@@ -9,7 +11,6 @@ const MainList = ({setName}) => {
     const {localStore: store} = useContext(StoreContext)
     const [items, setItems] = useState(store.getListItems(listName))
     const [text, setText] = useState('')
-
     useEffect(() => {
         setItems(store.getListItems(listName))
         setName(listName)
@@ -32,8 +33,9 @@ const MainList = ({setName}) => {
     }
     return (
         <>
+        <Filter setItems={setItems} items={store.getListItems(listName)}/>
+        {items.length === 0 && <div>Заданий нет...</div>}
          <ul>
-             {items.length === 0 && <li>Задач нет...</li>}
              {items.map(item => 
                 <MainListItem key={item.id} {...item} 
                     setItems={setItems} 
@@ -41,10 +43,13 @@ const MainList = ({setName}) => {
                     remove={handlerRemoveItemClick}
                     />)}
          </ul>
-         <div>
-                <input type="text"  value={text} onChange={(e) => setText(e.target.value)}/>
-                <button onClick={handleAddItemClick}>Добавить</button>   
-         </div>
+         <footer style={{display: 'flex'}}>
+                <Input value={text} onChange={(e) => setText(e.target.value)}
+                    onPressEnter={handleAddItemClick}
+                />
+                <Button style={{marginLeft: '5px'}} size='middle' type='primary' 
+                    onClick={handleAddItemClick}>Добавить</Button>
+         </footer>
         </>
         
     );
