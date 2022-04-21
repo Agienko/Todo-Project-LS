@@ -1,9 +1,11 @@
 import { Button, Input } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { TransitionGroup , CSSTransition} from 'react-transition-group';
 import StoreContext from '../../context/storeContext';
 import Filter from '../Filter/Filter';
 import MainListItem from './MainListItem/MainListItem';
+import '../../globalStyles/transition.scss'
 
 const MainList = ({setName}) => {
     let listName = useParams()['*']
@@ -35,18 +37,18 @@ const MainList = ({setName}) => {
         <>
         <Filter setItems={setItems} items={store.getListItems(listName)}/>
         {items.length === 0 && <div>Заданий нет...</div>}
-         <ul>
-             {items.map(item => 
-                <MainListItem key={item.id} {...item} 
-                    setItems={setItems} 
-                    update={handlerUpdateItemClick}
-                    remove={handlerRemoveItemClick}
-                    />)}
-         </ul>
+        <ul>
+            <TransitionGroup className="todo-list">
+            {items.map(item => 
+                <CSSTransition key={item.id}timeout={300} classNames="item">
+                    <MainListItem {...item} setItems={setItems} 
+                        update={handlerUpdateItemClick} remove={handlerRemoveItemClick}/>
+                </CSSTransition>)}
+            </TransitionGroup>
+        </ul>
          <footer style={{display: 'flex'}}>
                 <Input value={text} onChange={(e) => setText(e.target.value)}
-                    onPressEnter={handleAddItemClick}
-                />
+                    onPressEnter={handleAddItemClick}/>
                 <Button style={{marginLeft: '5px'}} size='middle' type='primary' 
                     onClick={handleAddItemClick}>Добавить</Button>
          </footer>

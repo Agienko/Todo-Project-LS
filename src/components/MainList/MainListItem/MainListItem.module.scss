@@ -4,17 +4,23 @@
     border-radius: 5px;
     margin: 5px;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    justify-content:space-between;
     align-items:center;
-    min-width: 340px;
+    min-width: 300px;
     overflow: hidden;
+    padding: 0 15px;
     header{
-        line-height: 0.7;
-    
+        line-height: 1.0;
+        text-align: start;
+        overflow-wrap: break-word;
+        input{
+            margin-bottom: 5px;
+        }
         h3{
-            font-size: large;
-            text-align: center;
-            white-space: nowrap;
+            max-width: 180px;
+            font-size: 18px;
+            white-space: pre-wrap;
             cursor: pointer;
         }
         p{
@@ -23,15 +29,18 @@
             color: gray;
         }
     }
-
-    
-    
     main, footer{
         display: flex;
+        flex-direction: column;
     }
+    main{
+        padding-top: 15px;
+        }
+        
+    
     footer{
         button{
-            margin: 0 5px;
+            margin: 5px;
         }
     }
    
@@ -39,4 +48,7 @@
 .completed{
     border: 1px solid rgb(79, 190, 27); 
     background-color:rgba(175, 223, 134, 0.853);
+}
+.textCompleted{
+    text-decoration: line-through;
 }

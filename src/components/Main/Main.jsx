@@ -11,11 +11,11 @@ const Main = () => {
     
     return (
         <div className={['Main', s.main].join(' ')}>
-        <h2>{name ? name : 'Выберите список'}</h2>
-        <Routes>
-            <Route  path={'/'} element={<Navigate to={'/mainList'}/>}/>
-            <Route  path={'/mainList/*'} element={<MainList setName={setName}/>}/>
-        </Routes>
+            <h2>{name ? name : 'Выберите список'}</h2>
+            <Routes>
+                <Route  path={'/'} element={<Navigate to={'/mainList'}/>}/>
+                <Route  path={'/mainList/*'} element={<MainList setName={setName}/>}/>
+            </Routes>
         </div>
     );
 };

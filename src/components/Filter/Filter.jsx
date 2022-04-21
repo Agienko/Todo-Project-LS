@@ -8,18 +8,18 @@ const Filter = ({setItems, items}) => {
     const handleChange = (value) =>{
         switch (value) {
             case "ALL":
-                    setItems(items)
+                setItems(items)
                 break;
             case "IMP_URG":
                 setItems(items.filter(i => i.important).filter(i => i.urgent))
                 break;
-            case "IMP_NURG":
+            case "IMP_nURG":
                 setItems(items.filter(i => i.important).filter(i => !i.urgent))
                 break;
-            case "NIMP_URG":
+            case "nIMP_URG":
                 setItems(items.filter(i => !i.important).filter(i => i.urgent))
                 break;
-            case "NIMP_NURG":
+            case "nIMP_nURG":
                 setItems(items.filter(i => !i.important).filter(i => !i.urgent))
                 break;
             default:
@@ -32,9 +32,9 @@ const Filter = ({setItems, items}) => {
     <Select defaultValue="ALL" style={{ width: 210}} onChange={handleChange}>
       <Option value="ALL">Все</Option>
       <Option value="IMP_URG">Важные и Срочные</Option>
-      <Option value="IMP_NURG">Важные и Не срочные</Option>
-      <Option value="NIMP_URG">Не Важные и Срочные</Option>
-      <Option value="NIMP_NURG">Не Важные и Не срочные</Option>
+      <Option value="IMP_nURG">Важные и Не срочные</Option>
+      <Option value="nIMP_URG">Не Важные и Срочные</Option>
+      <Option value="nIMP_nURG">Не Важные и Не срочные</Option>
     </Select>
     );
 };

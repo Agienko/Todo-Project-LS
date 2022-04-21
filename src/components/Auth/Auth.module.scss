@@ -1,17 +1,14 @@
+.main label {
+  padding: 5px;
+  div {
+    width: 180px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+}
 
-    .main{
-        label{
-            padding: 5px;
-            div{
-                width: 180px;
-                margin-bottom: 10px;
-                margin-top: 20px;
-            }
-        } 
-    }
-   
-.alert{
-    margin: 5px;
-    color: red;
-    text-align: center;
+.alert {
+  margin: 5px;
+  color: red;
+  text-align: center;
 }

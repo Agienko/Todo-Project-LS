@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import './App.scss';
+import './globalStyles/App.scss';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import PlugIsAuth from './components/PlugIsAuth/PlugIsAuth';
 import SideBar from './components/SideBar/SideBar';
 import localStore from './context/localState';
 import StoreContext from './context/storeContext';
-
 
 function App() {
   const [isLogged, setIsLogged] = useState(localStore.isLogged());
