@@ -2,10 +2,14 @@
     width: 260px;
     padding: 5px;
     margin: 5px;
-    border: 1px solid gray;
+    border: 1px solid rgba(150, 150, 150, 0.856);
     border-radius: 5px;
     list-style: none;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    box-shadow: 2px 2px 5px rgba(75, 75, 75, 0.203);
+   
     a{
         display: flex;
         justify-content: space-between;
@@ -19,4 +23,7 @@
     button{
         z-index: 5;
     }
+}
+.selected{
+    background-color: rgba(255, 245, 109, 0.203);
 }

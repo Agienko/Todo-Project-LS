@@ -1,22 +1,23 @@
 import { Button, Input } from 'antd';
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import StoreContext from '../../../context/storeContext';
 import s from './SideBarItem.module.scss'
 
 const SideBarItem = ({name, deleteList, renameList}) => {
+
+    const {selectedListName, selectListName} = useContext(StoreContext)
+
     const [toggle, setToggle] = useState(false)
     const [listName, setListName] = useState(name)
-
+    let active = selectedListName === name
     const handleRename = () =>{
         if(name !== listName && listName) renameList(name, listName)
         setListName(name)
         setToggle(!toggle)
     }
- 
-    const path = useLocation().pathname.split('/')[1]
+    useEffect(() => () => selectListName('') ,[])
     return (
-        <li className={s.sidebarItem}> 
-            <Link to={`${path}/${listName}`}>
+        <li className={ active ? s.sidebarItem + ' ' + s.selected : s.sidebarItem} onClick={() => selectListName(name)}> 
             {toggle
             ?   
             <>
@@ -32,7 +33,6 @@ const SideBarItem = ({name, deleteList, renameList}) => {
                     <Button ghost size='small' type='danger' onMouseDown={() => deleteList(name)}>Удалить</Button>
                 </>
             }
-            </Link> 
         </li>
     );
 };

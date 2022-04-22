@@ -1,15 +1,15 @@
 .mainlistitem{
-    border: 1px solid gray;
+    border: 1px solid rgba(128, 128, 128, 0.86);
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
     display: flex;
-    // flex-direction: column;
     justify-content:space-between;
     align-items:center;
     min-width: 300px;
     overflow: hidden;
     padding: 0 15px;
+    box-shadow: 2px 2px 5px rgba(38, 38, 38, 0.305);
     header{
         line-height: 1.0;
         text-align: start;
@@ -45,10 +45,28 @@
     }
    
 }
+
+
+.impUrg{
+background-color:#ff0d0069;
+}
+.impNurg{
+    background-color:#ff9d007e;
+}
+.nImpUrg{
+    background-color:#ff28e65c;
+    
+}
+.nImpNurg{
+    background-color:rgba(93, 209, 255, 0.238);
+}
+
+
 .completed{
-    border: 1px solid rgb(79, 190, 27); 
+    // border: 1px solid rgb(255, 255, 255); 
     background-color:rgba(175, 223, 134, 0.853);
 }
+
 .textCompleted{
     text-decoration: line-through;
 }

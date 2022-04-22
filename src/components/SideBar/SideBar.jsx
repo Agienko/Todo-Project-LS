@@ -32,13 +32,13 @@ const SideBar = () => {
             {lists.map(name => 
                 <CSSTransition key={name} timeout={250} classNames="item">
                     <SideBarItem name={name} deleteList={handlerDeleteList} 
-                                    renameList={handlerRenameList}/>
+                                renameList={handlerRenameList}/>
                 </CSSTransition>)}
             </TransitionGroup>   
           </ul>
-          <Button ghost type='primary' size='small' onClick={handlerAddList}>Добавить</Button>
+          <Button ghost type='primary' size='small' onClick={handlerAddList}>Добавить список</Button>
         </div>
     );
 };
 
-export default SideBar;
+export default React.memo(SideBar) ;

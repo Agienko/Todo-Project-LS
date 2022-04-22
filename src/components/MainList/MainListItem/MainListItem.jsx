@@ -7,8 +7,19 @@ const MainListItem = ({setItem, update, remove, ...props }) => {
   const [toggle, setToggle] = useState(false)
   const [text, setText] = useState(props.text)
 
+
+  let classNameArr = [s.mainlistitem]
+
+  if(props.important && props.urgent) classNameArr = [s.mainlistitem, s.impUrg]
+  if(props.important && !props.urgent) classNameArr = [s.mainlistitem, s.impNurg]
+  if(!props.important && props.urgent) classNameArr = [s.mainlistitem, s.nImpUrg]
+  if(!props.important && !props.urgent) classNameArr = [s.mainlistitem, s.nImpNurg]
+  if(props.completed) classNameArr = [s.mainlistitem, s.completed]
+ 
+
+
   return (
-    <li className={props.completed ? [s.mainlistitem, s.completed].join(' ') : s.mainlistitem } >
+    <li className={classNameArr.join(' ')} >
       <header>
         <h3 className={props.completed ? s.textCompleted : ''} hidden={toggle} 
             onDoubleClick={()=> setToggle(!toggle)}

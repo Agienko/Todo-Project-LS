@@ -13,6 +13,7 @@ const Auth = ({setAuthVisible, loginUser, setIsLogged, visible}) => {
         setAuthVisible(false)
         setName('')
         setPass('')
+        setWrong(false)
     }
    
     const handlerOk = (e) =>{
