@@ -36,16 +36,12 @@
     main{
         padding-top: 15px;
         }
-        
-    
     footer{
         button{
             margin: 5px;
         }
     }
-   
 }
-
 
 .impUrg{
 background-color:#ff0d0069;
@@ -54,19 +50,14 @@ background-color:#ff0d0069;
     background-color:#ff9d007e;
 }
 .nImpUrg{
-    background-color:#ff28e65c;
-    
+    background-color:#ff28e65c;  
 }
 .nImpNurg{
-    background-color:rgba(93, 209, 255, 0.238);
+    background-color:rgba(93, 228, 255, 0.273);
 }
-
-
 .completed{
-    // border: 1px solid rgb(255, 255, 255); 
     background-color:rgba(175, 223, 134, 0.853);
 }
-
 .textCompleted{
     text-decoration: line-through;
 }

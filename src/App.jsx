@@ -7,7 +7,7 @@ import SideBar from './components/SideBar/SideBar';
 import localStore from './context/localState';
 import StoreContext from './context/storeContext';
 import MainList from './components/MainList/MainList';
-import { Footer } from 'antd/lib/layout/layout';
+import FooterMy from './components/Footer/FooterMy'
 
 function App() {
   const [isLogged, setIsLogged] = useState(localStore.isLogged());
@@ -24,9 +24,8 @@ function App() {
               <MainList/>
             </>
           : <PlugIsAuth />}
-          <Footer hidden={!isLogged} className='footer'>
-            fghfghfghgffgh
-          </Footer>
+          <FooterMy isLogged={isLogged}/>
+          
         </StoreContext.Provider>
       </BrowserRouter>
     </div>
